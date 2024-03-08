@@ -20,7 +20,7 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
-dependencies = ["naja_atra", "jinja2>=3.1"]
+dependencies = ["naja-atra", "jinja2>=3.1"]
 dynamic = ["version"]
 
 [tool.setuptools.packages.find]
