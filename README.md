@@ -12,8 +12,7 @@ python3 -m pip install naja_atra_jinja
 
 ```python
 from naja_atra import route, server
-from naja_atra_jinja import JinjaView, set_env
-from jinja2 import Environment, FileSystemLoader
+from naja_atra_jinja import JinjaView
 
 @route("/index")
 def index(name: str = "world"):
