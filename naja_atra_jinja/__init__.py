@@ -58,17 +58,17 @@ def get_env(tag: str = DEFAULT_TAG) -> Environment:
     return ENVS[tag]
 
 
-def render(name, kwargs: dict = {}, env_tag: str = DEFAULT_TAG) -> str:
+def render(name, variables: dict = {}, env_tag: str = DEFAULT_TAG) -> str:
     env = get_env(env_tag)
     tpl = env.get_template(name)
-    return tpl.render(kwargs)
+    return tpl.render(variables)
 
 
 class JinjaView(Response):
 
-    def __init__(self, name, kwargs: dict = {},
+    def __init__(self, name, variables: dict = {},
                  env_tag: str = DEFAULT_TAG,
                  status_code: int = 200,
                  headers: Dict[str, str] = None):
         super().__init__(status_code, headers, body=render(
-            name, kwargs=kwargs, env_tag=env_tag))
+            name, variables=variables, env_tag=env_tag))
