@@ -31,7 +31,7 @@ from jinja2 import Environment, FileSystemLoader
 from typing import Dict
 
 name = "naja_atra_jinja"
-version = "1.0.0"
+version = "1.0.1"
 
 _logger = get_logger("naja_atra_jinja")
 

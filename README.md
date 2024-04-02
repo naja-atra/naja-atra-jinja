@@ -1,16 +1,14 @@
 # Jinja for Naja Atra
 
-## What's this?
+This is a Jinja extension for [Naja Atra](https://github.com/naja-atra/naja-atra)
 
-This is a Jinja extension for pythone simple http server (https://github.com/keijack/python-simple-http-server)
-
-## How to use?
-
-install
+## Installation
 
 ```
-python3 -m pip install simple_http_server_jinja
+python3 -m pip install naja_atra_jinja
 ```
+
+## Usage
 
 ```python
 from naja_atra import route, server
