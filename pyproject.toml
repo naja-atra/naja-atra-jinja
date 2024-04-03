@@ -31,5 +31,5 @@ include=["naja_atra_jinja"]
 version = {attr = "naja_atra_jinja.version"}
 
 [project.urls]
-homepage = "https://github.com/keijack/naja-atra-jinja"
-repository = "https://github.com/keijack/naja-atra-jinja"
+homepage = "https://github.com/naja-atra/naja-atra-jinja"
+repository = "https://github.com/naja-atra/naja-atra-jinja"
