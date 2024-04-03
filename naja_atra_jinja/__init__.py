@@ -30,10 +30,10 @@ from naja_atra.utils.logger import get_logger
 from jinja2 import Environment, FileSystemLoader
 from typing import Dict
 
-name = "naja_atra_jinja"
+name = "naja-atra-jinja"
 version = "1.0.1"
 
-_logger = get_logger("naja_atra_jinja")
+_logger = get_logger(name)
 
 DEFAULT_TAG = "default"
 ENVS: Dict[str, Environment] = {}
@@ -43,15 +43,26 @@ def set_env(env: Environment, tag: str = DEFAULT_TAG):
     ENVS[tag] = env
 
 
-def get_project_dir() -> str:
+def get_main_module_dir() -> str:
     mpath = os.path.dirname(sys.modules['__main__'].__file__)
     _logger.debug(f"Path of module[main] is {mpath}")
     return mpath
 
 
+def get_template_dir() -> str:
+    template_path = os.path.join(get_main_module_dir(), "templates")
+    if os.path.exists(template_path):
+        return template_path
+    template_path = os.path.join(os.getcwd(), "templates")
+    if os.path.exists(template_path):
+        return template_path
+    raise FileNotFoundError(
+        f"Cannot find templates directory, please create a directory named 'templates' in your project root directory")
+
+
 def get_env(tag: str = DEFAULT_TAG) -> Environment:
     if tag not in ENVS:
-        searchpath = os.path.join(get_project_dir(), "templates")
+        searchpath = get_template_dir()
         _logger.info(
             f"Cannot find env in tag[#{tag}], create a default one which templates should in {searchpath}")
         ENVS[tag] = Environment(loader=FileSystemLoader(searchpath))
